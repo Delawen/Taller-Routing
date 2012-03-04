@@ -19,7 +19,7 @@ div.header {
   padding-left:23px;
   border-radius:12px;
   margin-top: 13px;
-  margin-bottom:10px;
+  margin-bottom:20px;
   font-family: Sketch;
 }
 
@@ -34,6 +34,7 @@ div.foot {
 
 .slide li  {
   font-size: 200%;
+  font-family: Sketch;
 }
 
 li.before {
@@ -49,12 +50,13 @@ li.after {
 .deck-container {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-size: 1.25em;
-  color: #555;
+  color: #333;
   background-image:url("../../../1280px-Piri_Reis_map_of_Europe_and_the_Mediterranean_Sea.jpg");
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position:center; 
   font-family: Vera;
+  text-align:justify;
 }
 .deck-container .slide {
 }
@@ -76,6 +78,10 @@ li.after {
   font-weight: normal;
   font-weight: 100;
   text-shadow: 0 0 10px #fff, 0 0 2px #fff;
+  font-family: Sketch;
+}
+.deck-container .slide h4 {
+  font-weight: normal;
   font-family: Sketch;
 }
 .deck-container .slide pre {

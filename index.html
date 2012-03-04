@@ -78,6 +78,66 @@
   <p>Dado un conjunto de viales y sus relaciones, el cálculo de rutas
   nos permite conocer el camino <emp>"más corto"</emp> entre dos puntos.</p>
   
+  <img src="imagenes/camino_mas_corto.svg" height="300px"/>
+  
+  <p>El coste del camino determina cual es el camino más corto. Puede ser tiempo,
+  longitud o cualquier otra variable que se necesite.</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> BREVE INTRODUCCION TEORICA </div>
+  
+  <h4>¿Cómo se calcula?</h4>
+  <p>Tradicional y teóricamente la forma de calcular la ruta más corta entre
+  dos puntos es mediante el algoritmo de Dijkstra.</p>
+  
+  <a href="http://en.wikipedia.org/wiki/File:Dijkstras_progress_animation.gif"><img src="imagenes/Dijksta_Anim.gif" height="300px"/></a>
+  
+  <p>Se va avanzando nodo a nodo siempre por el camino que lleve menos coste.</p>
+  
+  <p>Está demostrado matemáticamente que siempre encuentra la ruta óptima 
+  (la de menor coste).</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> BREVE INTRODUCCION TEORICA </div>
+  
+  <h4>¿Dijkstra entonces?</h4>
+  <p>Dijstra presenta un problema fundamental: tarda mucho.</p>
+  
+  <center><p>O(|E| + |V| log(|V|))</p></center>
+  
+  <p>Para situarnos: una ciudad como Sevilla puede tener cerca de 10.000 viales. 
+  Aún cuando tardara un milisegundo en procesar cada vial y otro milisegundo 
+  en procesar cada cruce, nos quedaría:</p>
+  
+  <center><p>O(|10000| + |10000| log(|10000|))~ 50.000 ms ~ 1 minuto</p></center>
+  
+  <p>Y eso usando sólo los datos de una ciudad media.</p>
+  
+  <p>Por suerte, existen otros algoritmos que podemos utilizar.</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> BREVE INTRODUCCION TEORICA </div>
+  
+  <h4>El algoritmo A*(a-star o a-estrella):</h4>
+  <p>Dijkstra con heurísticas. </p>
+  <p>Por ejemplo, supongamos que en vez de seleccionar el nodo que lleva
+  menor coste, seleccionamos el que lleva menor coste y creemos que se acerca más al
+  destino.</p>
+  
+  <a href="http://en.wikipedia.org/wiki/File:Astar_progress_animation.gif"><img src="imagenes/Astar_progress_animation.gif" height="300px"/></a>
+  
+  <p>Está matemáticamente demostrado que si la heurística es menor o igual que el coste que sería
+  en realidad, A* devuelve una solución óptima.</p>
+  
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
