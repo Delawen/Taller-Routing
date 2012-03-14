@@ -33,7 +33,7 @@ div.foot {
 }
 
 .slide li  {
-  font-size: 200%;
+  font-size: 150%;
   font-family: Sketch;
 }
 
@@ -47,6 +47,28 @@ li.after {
   color: #955959;
 }
 
+img{
+  float:left;
+}
+
+p.listado{
+  font-size:110%;
+  color: #e00;
+}
+
+ul.listado li{
+  font-family: "Vera", serif;
+  font-size: 85%;
+  text-align:left;
+}
+
+ul.old li{
+  font-family: "Vera", serif;
+  font-size: 85%;
+  text-align:left;
+  color: #955959;
+}
+
 .deck-container {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-size: 1.25em;
@@ -56,7 +78,7 @@ li.after {
   background-attachment:fixed;
   background-position:center; 
   font-family: Vera;
-  text-align:justify;
+  text-align:center;
 }
 .deck-container .slide {
 }
@@ -83,6 +105,7 @@ li.after {
 .deck-container .slide h4 {
   font-weight: normal;
   font-family: Sketch;
+  padding-bottom:25px;
 }
 .deck-container .slide pre {
   border-color: #333;
