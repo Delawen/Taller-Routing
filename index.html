@@ -434,12 +434,12 @@
   
   <h4>Ejemplo rápido de Dijkstra</h4>
   <p>Creamos una base de datos para nuestras pruebas</p>
-  <p class="code">createdb -U girona --template="template_postgis" girona</p>
+  <p class="code">createdb -U girona -h localhost --template="template_postgis" girona</p>
   <p>Y la dotamos de la extensión pgRouting</p>
-  <p class="code">--createlang -U girona plpgsql girona</p>
-  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_core.sql</p>
-  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_core_wrappers.sql</p>
-  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_topology.sql</p>
+  <p class="code">--createlang -U girona -h localhost plpgsql girona</p>
+  <p class="code">psql -U girona -h localhost -d girona -f /usr/share/postlbs/routing_core.sql</p>
+  <p class="code">psql -U girona -h localhost -d girona -f /usr/share/postlbs/routing_core_wrappers.sql</p>
+  <p class="code">psql -U girona -h localhost -d girona -f /usr/share/postlbs/routing_topology.sql</p>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
@@ -554,17 +554,76 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4 style="padding-top:15%">Entornos Reales</h4>
+  <p>Uso de funciones y vistas para generar perfiles</p>
+  <p>to_cost dependiendo del tipo de intersección</p>
+  <p>length dependiendo del tipo de vía</p>
+  <p>Posible incorporación de tráfico en tiempo real</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Ejemplo Real</h4>
+  <p class="code">--createlang -U gofleetls -h localhost plpgsql gofleetls</p>
+  <p class="code">psql -U gofleetls -h localhost -f /usr/share/postlbs/routing_core.sql</p>
+  <p class="code">psql -U gofleetls -h localhost -f /usr/share/postlbs/routing_core_wrappers.sql</p>
+  <p class="code">psql -U gofleetls -h localhost -f /usr/share/postlbs/routing_topology.sql</p>
+  <p>psql -U gofleetls -h localhost</p>  
+  <p class="code">SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');</p>
+  <p class="code">SELECT shootingstar_sp('ways', 77, 300, 0.1, 'length', true, true);</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Entornos Reales</h4>
+  <h5>Diferentes tipos de vías (velocidades)</h5>
+  <p>En vez de usar st_length en el coste, usar el tiempo</p>
+  <h5>Diferentes tipos de vehículos</h5>
+  <p>Tener diferentes vistas en la BBDD para cada tipo de vehículo</p>
+  <h5>Tráfico</h5>
+  <p>El coste como función, no como constante</p>
+  <h5>Señales de tráfico</h5>
+  <p>Modelas señales como intersecciones y asignarles un to_cost</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Entornos Reales</h4>
+  <h5 style="padding-top:5%">Giros prohibidos</h5>
+  <p>to_cost infinito</p>
+  <h5>Cambios estacionales</h5>
+  <p>Vistas o funciones según el momento</p>
+  <h5>Imprevistos (obras, accidentes,...)</h5>  
+  <p>Columna booleana habilitando o deshabilitando vías</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
 <section class="slide">
   <div class="header"> Shooting Star </div>
   
   <h4>Pros</h4>
   <p>Tiene en cuenta todas nuestras restricciones</p>
-  <p>Devuelve rutas óptimas</p>
+  <p>Permite modelar datos dinámicos fácilmente</p>
   <p>Es fácil incorporar restricciones inteligentes (vistas)</p>
-  <p>Toda la potencia de base de postgreSQL</p>
   
   <h4 style="padding-top:10%">Contras</h4>
-  <p>Es muy lento con datos reales</p>
+  <p>Devuelve rutas sub-óptimas</p>
+  <p>No es escalable:</p>
   <p>Utiliza mucha memoria</p>
   </div>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
@@ -624,7 +683,6 @@
 </section>
 
 
-
 <section class="slide">
   <div class="header"> Shooting Star </div>
   
@@ -665,17 +723,16 @@
 <section class="slide">
   <div class="header"> OSRM </div>
   
-  <h4 style="padding-top:5%">Open Source Routing Machine</h4>
-  <h5 style="padding-top:3%">C++</h5>
+  <h4>Open Source Routing Machine</h4>
+  <h5 style="padding-top:2%">C++</h5>
   <h5 style="padding-top:2%">Estado del Arte (2011)</h5>
   <p>Contraction Hierarchies</p>
-  <h5 style="padding-top:3%">Trabaja directamente con datos OSM</h5>
+  <h5 style="padding-top:2%">Trabaja directamente con datos OSM</h5>
   <p>importadores</p>
-  <h5 style="padding-top:3%">Tiempos Instantáneos</h5>
-  <h5 style="padding-top:3%">API (HTTP) aún no es estable</h5>
-  <h5 style="padding-top:3%">Preprocesar los datos</h5>
-    
-  <p style="padding-top:5%">
+  <h5 style="padding-top:2%">Tiempos Instantáneos</h5>
+  <h5 style="padding-top:2%">API (HTTP) aún no es estable</h5>
+  <h5 style="padding-top:2%">Preprocesar los datos</h5>
+  <p style="padding-top:1%">
   <a href="http://project-osrm.org/">Project-OSRM</a>
   </p> 
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
@@ -733,6 +790,23 @@
 
 
 <section class="slide">
+  <div class="header"> OpenLS </div>
+  
+  <h4>Open Location Service</h4>
+  <h5 style="padding-top:2%">Estandar OGC</h5>
+  <h5>Directory Service</h5>
+  <h5>GateWay Service</h5>
+  <h5>Location Utility Service</h5>
+  <h5>Presentation Service</h5>
+  <h4>Route Service</h4>
+  <h5>Navigation Service</h5>
+  <h5>Tracking Service</h5>
+  <p>Nos permite aislarnos de la implementación concreta (Saas)</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
   <div class="header"> INDICE </div>
   <ul>
     <li class="before">Breve Introducción Teórica</li>
@@ -748,6 +822,12 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
+<section class="slide">
+  <div class="header"> Cómo implementar OpenLS </div>
+  
+  <p>No olvidar las utilidades OpenGIS</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
 
 <section class="slide">
   <div class="header"> INDICE </div>
