@@ -624,6 +624,28 @@
 </section>
 
 
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>HBA Star (HBA*)</h4>
+  <h5>PlPython</h5>
+  <p>Basado en Jerarquías de la Red:</p>
+  <p>la lógica dice que iremos por avenidas, no callejeando</p>
+  
+  <p style="padding-top:1%">
+  <a href="https://github.com/Emergya/GoFleetLSServer/tree/master/src/main/database/routing_extension">https://github.com/Emergya/GoFleetLSServer/.../routing_extension</a>
+  </p> 
+  
+  <h4 style="padding-top:5%">Resultados HBA*</h4>
+  <p>Mejora significativamente ShootingStar</p>
+  <p>Aprovecha la potencia de postgreSQL</p>
+  <p>Sin embargo, buscábamos más</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
 <section class="slide" id="osrm">
   <div class="header"> INDICE </div>
   <ul>
@@ -637,6 +659,59 @@
     <li class="after">GoFleetLS</li>
     <li class="after">Conclusiones</li>
   </ul>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> OSRM </div>
+  
+  <h4 style="padding-top:5%">Open Source Routing Machine</h4>
+  <h5 style="padding-top:3%">C++</h5>
+  <h5 style="padding-top:2%">Estado del Arte (2011)</h5>
+  <p>Contraction Hierarchies</p>
+  <h5 style="padding-top:3%">Trabaja directamente con datos OSM</h5>
+  <p>importadores</p>
+  <h5 style="padding-top:3%">Tiempos Instantáneos</h5>
+  <h5 style="padding-top:3%">API (HTTP) aún no es estable</h5>
+  <h5 style="padding-top:3%">Preprocesar los datos</h5>
+    
+  <p style="padding-top:5%">
+  <a href="http://project-osrm.org/">Project-OSRM</a>
+  </p> 
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> OSRM </div>
+  
+  <h4>Instalación</h4>
+  <p>Aún no hay paquetería, pero es muy sencillo de compilar (Debian*)</p>
+  <p class="code">$ git clone git://github.com/DennisOSRM/Project-OSRM.git</p>
+  <p class="code">$ sudo apt-get install libprotobuf-dev libbz2-dev </p>
+  <p class="code">libpng12-dev libstxxl-dev libxml2-dev libzip-dev </p>
+  <p class="code">libboost-dev libboost-system-dev libboost-thread-dev </p>
+  <p class="code">libboost-regex-dev scons build-essential </p>
+  <p> Necesita scons >= 2.1, por lo que utilicé la versión oneiric de scons, que
+  no rompe dependencias</p>
+  <p class="code">$ cd Project-OSRM </p>
+  <p class="code">$ scons </p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> OSRM </div>
+  
+  <h4>Configuración</h4>
+  <p>El fichero original es un fichero OSM</p>
+  <p class="code">$ ./osrm-extract $osmfile</p>
+  <p>Con los ficheros generados, preparamos los datos</p>
+  <p class="code">$ ./osrm-prepare $osmfile.osrm $osmfile.osrm.restrictions </p>
+  <p>Nos aseguramos de que la configuración apunte a estos ficheros</p>
+  <p class="code">$ vim server.ini </p>
+  <p>Y ya está:</p>
+  <p class="code">$ ./osrm-routed </p>
+  <a href="http://localhost:5000/viaroute?loc=41.413,2.17&loc=41.4135,2.175">OSRM nos espera en el puerto 5000</a>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 

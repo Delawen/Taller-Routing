@@ -158,7 +158,7 @@ ul.old li{
 .deck-container .slide ::selection {
 }
 .deck-container .slide a, .deck-container .slide a:hover, .deck-container .slide a:focus, .deck-container .slide a:active, .deck-container .slide a:visited {
-  color: #f0a;
+  color: #666;
   text-decoration: none;
 }
 .deck-container .slide a:hover, .deck-container .slide a:focus {
