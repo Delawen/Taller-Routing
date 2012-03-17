@@ -49,7 +49,6 @@
     <li class="current">Cálculo de rutas en entornos reales</li>
     <li class="current">pgRouting</li>
     <li class="current">Shooting Star</li>
-    <li class="current">HBA</li>
     <li class="current">OSRM</li>
     <li class="current">¿Qué es OpenLS?</li>
     <li class="current">Cómo implementar OpenLS</li>
@@ -67,7 +66,6 @@
     <li class="after">Cálculo de rutas en entornos reales</li>
     <li class="after">pgRouting</li>
     <li class="after">Shooting Star</li>
-    <li class="after">HBA</li>
     <li class="after">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -117,11 +115,12 @@
   
   <center><p>O(|E| + |V| log(|V|))</p></center>
   
-  <p>Para situarnos: una ciudad como Sevilla puede tener cerca de 10.000 viales. 
-  Aún cuando tardara un milisegundo en procesar cada vial y otro milisegundo 
+  <p>Para situarnos:</p>
+  <p>una ciudad como Sevilla puede tener cerca de 100.000 viales. </p>
+  <p>Aún cuando tardara un milisegundo en procesar cada vial y otro milisegundo 
   en procesar cada cruce, si queremos calcular una ruta atraviese la ciudad nos quedaría:</p>
   
-  <center><p>O(|10000| + |10000| log(|10000|))~ 50.000 ms ~ 1 minuto</p></center>
+  <center><p>O(|100000| + |100000| log(|100000|))~ 600.000 ms ~ 10 minutos</p></center>
   
   <p>Y eso usando sólo los datos de una ciudad media.</p>
   
@@ -135,14 +134,13 @@
   
   <h4>El algoritmo A*(a-star o a-estrella):</h4>
   <p>Dijkstra con heurísticas. </p>
-  <p>Por ejemplo, supongamos que en vez de seleccionar el nodo que lleva
+  <p>Supongamos que en vez de seleccionar el nodo que lleva
   menor coste, seleccionamos el que lleva menor coste y creemos que se acerca más al
   destino.</p>
   
   <a href="http://en.wikipedia.org/wiki/File:Astar_progress_animation.gif"><img style="float:none"  src="imagenes/Astar_progress_animation.gif" width="300px"/></a>
   
-  <p>Está matemáticamente demostrado que si la heurística es menor o igual que el coste que sería
-  en realidad, A* devuelve una solución óptima.</p>
+  <p>Está demostrado que si la heurística es menor o igual que el coste que sería en realidad, A* devuelve una solución óptima.</p>
   
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
@@ -170,7 +168,6 @@
     <li class="current">Cálculo de rutas en entornos reales</li>
     <li class="after">pgRouting</li>
     <li class="after">Shooting Star</li>
-    <li class="after">HBA</li>
     <li class="after">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -183,9 +180,9 @@
 <section class="slide">
   <div class="header"> ENTORNOS REALES </div>
   
-  <h4>Del modelo teórico a la realidad</h4>
+  <h4>Del modelo teórico de datos a la realidad</h4>
   
-  <ul class="listado">
+  <ul class="listado" style="padding-left:20%;line-height:220%;">
   <li>Diferentes tipos de vías (velocidades)</li>
   <li>Diferentes tipos de vehículos</li>
   <li>Tráfico</li>
@@ -203,10 +200,11 @@
   
   <h4>Aplicaciones en tiempo real</h4>
   
-  <ul class="listado">
+  <ul class="listado" style="padding-left:20%;line-height:220%;">
   <li>Tiempo de respuesta viable</li>
   <li>Recálculo de la ruta</li>
-  <li>
+  <li>Rutas con varios destinos (TSP)</li>
+  <li>Aplicaciones móviles (hardware limitado)</li>
   </ul>
   
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
@@ -218,7 +216,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="current">pgRouting</li>
     <li class="after">Shooting Star</li>
-    <li class="after">HBA</li>
     <li class="after">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -228,23 +225,23 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
-
+<!--
 <section class="slide">
   <div class="header"> ANTES DE SEGUIR </div>
   
   <p>Cuando empecé a preparar el taller, pgRouting era una de las opciones preferidas para el cálculo de rutas.</p>
   <p>Sin embargo, pgRouting ha estado muy parado desde entonces y otras alternativas mejores han salido a la luz.</p>
   <p>(Con retraso por mi parte, algunas ya eran funcionales en 2011, pero no las conocía).</p>
-  <p>¿Seguimos con PgRouting o saltamos a otras alternativas?</p>
+  <p>¿Seguimos con PgRouting o saltamos directamente a otras alternativas?</p>
   <p>
   <a href="#pgrouting">
   <img style="padding-left:20%" src="imagenes/pgrouting.png" width="30%"/></a>
-  <a href="#HBA">
+  <a href="#osrm">
   <img style="padding-left:20%" src="imagenes/jumpforward.png" width="30%"/></a>
   </p>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
-
+-->
 <section class="slide" id="pgrouting">
   <div class="header"> INDICE </div>
   <ul>
@@ -252,7 +249,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="current">pgRouting</li>
     <li class="after">Shooting Star</li>
-    <li class="after">HBA</li>
     <li class="after">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -274,6 +270,51 @@
   <img style="padding-left:8%" src="imagenes/pgrouting.png" width="24%"/></div>
   <p>Dado un tipo de dato (tabla) genérica, provee varias funciones que permiten realizar el cálculo de
   rutas según nuestras necesidades.</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Instalación</h4>
+  <p>En una Debian y derivados es fácil: hay un ppa de Ubuntu:</div>
+  <p class="code">https://launchpad.net/~georepublic/+archive/pgrouting</p>
+  <p class="code" style="padding-bottom:10%">https://launchpad.net/~georepublic/+archive/pgrouting-testing</p>
+  <p class="code"> sudo add-apt-repository ppa:georepublic/pgrouting </p>
+  <p class="code"> sudo apt-get update </p>
+  <p class="code" style="padding-bottom:10%"> sudo apt-get install pgrouting </p>
+  <p>Esto te instala también postgis y postgreSQL por dependencias.</div>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Configuración</h4>
+  <p>La configuración es la misma que para usar postgreSQL:</p>
+  <p class="code">$ sudo su</p>
+  <p class="code">#echo "host   all      all  127.0.0.1/32 trust" >> /etc/postgresql/8.4/main/pg_hba.conf </p>
+  <p class="code">#service postgresql restart</p>
+  <p class="code">#exit</p>
+  <p>Ahora tenemos permiso para acceder desde local y desde cualquier usuario a la basede datos.</p>
+  <p class="code"> $ createuser -U postgres girona</p>
+  <p class="code"> ¿Será el nuevo rol un superusuario? (s/n) s</p>  
+  <p>Y ya tenemos un usuario para hacer nuestras pruebas.</p>
+
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4 style="padding-top:10%">Instalación de herramientas complementarias</h4>
+  <p>Si vamos a utilizar OSM,es importante instalar también:</div>
+  <p class="code">sudo apt-get install osm2pgrouting</p>
+  <p>para convertir datos OSM a pgrouting</p>
+  <p style="padding-top:5%">Si queremos un administrador GUI de postgreSQL:</div>
+  <p class="code">sudo apt-get install pgadmin3</p>
+  
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
@@ -367,7 +408,6 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
-
 <section class="slide">
   <div class="header"> pgRouting </div>
   
@@ -390,31 +430,87 @@
 </section>
 
 <section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Ejemplo rápido de Dijkstra</h4>
+  <p>Creamos una base de datos para nuestras pruebas</p>
+  <p class="code">createdb -U girona --template="template_postgis" girona</p>
+  <p>Y la dotamos de la extensión pgRouting</p>
+  <p class="code">--createlang -U girona plpgsql girona</p>
+  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_core.sql</p>
+  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_core_wrappers.sql</p>
+  <p class="code">psql -U girona  -d girona -f /usr/share/postlbs/routing_topology.sql</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Ejemplo rápido de Dijkstra</h4>
+  <p>Creamos la tabla que contendrá los datos:</p>
+  <p class="code">psql -U girona </p>
+  <p class="code">#CREATE TABLE routing_simple(</p>
+  <p class="code">gid serial,</p>
+  <p class="code">length double precision,</p>
+  <p class="code">PRIMARY KEY (gid));</p>
+  <p class="code">#select AddGeometryColumn('routing_simple', 'the_geom', 4326, 'LINESTRING', 2);</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Ejemplo rápido de Dijkstra</h4>
+  <p>Metemos datos simples:</p>
+  <p class="code"># INSERT INTO routing_simple(gid, the_geom) values </p>
+  <p class="code">(1, st_setsrid(st_geomfromtext('LINESTRING(0 0, 1 1)'),4326)),</p>
+  <p class="code">(2, st_setsrid(st_geomfromtext('LINESTRING(1 1, 1 2)'),4326)),</p>
+  <p class="code">(3, st_setsrid(st_geomfromtext('LINESTRING(1 1, 2 2)'),4326)),</p>
+  <p class="code">(4, st_setsrid(st_geomfromtext('LINESTRING(1 2, 2 2)'),4326));</p>
+  <img style="padding-left:40%;padding-right:40%" src="imagenes/ejemplo_simple.png" width="20%"/>
+  <p>Actualizamos el coste a la longitud de la geometría:</p>
+  <p class="code"># UPDATE routing_simple set length = st_length(the_geom);</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Ejemplo rápido de Dijkstra</h4>
+  <p>Establecemos las relaciones source-target:</p>
+  <p class="code"># ALTER TABLE routing_simple ADD COLUMN "source" integer;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN "target" integer;</p>
+  <p class="code">SELECT assign_vertex_id('routing_simple', 0.00001, 'the_geom', 'gid');</p>
+  <p>Y ya tenemos todo listo para hacer consultas:</p>
+  <p class="code"># select * from routing_simple;</p>
+  <img style="padding-left:40%;padding-right:40%" src="imagenes/ejemplo_simple.png" width="20%"/>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> pgRouting </div>
+  
+  <h4>Ejemplo rápido:</h4>
+  <p class="code"># select * from dijkstra_sp( table text,</p>
+  <p class="code">source_id integer,</p>
+  <p class="code">target_id integer);</p>
+  <p>Que en nuestro caso quedaría:</p>
+  <p class="code"># select * from dijkstra_sp( 'routing_simple',1,4);</p>
+  <img style="padding-left:40%;padding-right:40%" src="imagenes/ejemplo_simple.png" width="20%"/>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
   <div class="header"> INDICE </div>
   <ul>
     <li class="before">Breve Introducción Teórica</li>
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="current">Shooting Star</li>
-    <li class="after">HBA</li>
-    <li class="after">OSRM</li>
-    <li class="after">¿Qué es OpenLS?</li>
-    <li class="after">Cómo implementar OpenLS</li>
-    <li class="after">GoFleetLS</li>
-    <li class="after">Conclusiones</li>
-  </ul>
-<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
-</section>
-
-
-<section class="slide" id="HBA">
-  <div class="header"> INDICE </div>
-  <ul>
-    <li class="before">Breve Introducción Teórica</li>
-    <li class="before">Cálculo de rutas en entornos reales</li>
-    <li class="before">pgRouting</li>
-    <li class="before">Shooting Star</li>
-    <li class="current">HBA</li>
     <li class="after">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -425,13 +521,116 @@
 </section>
 
 <section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Shooting Star necesita todos los datos completos</h4>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN reverse_cost double precision;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN to_cost double precision;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN rule text;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN x1 double precision;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN y1 double precision;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN x2 double precision;</p>
+  <p class="code">ALTER TABLE routing_simple ADD COLUMN y2 double precision;</p>
+  </div>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <p class="code">UPDATE routing_simple SET reverse_cost = length;</p>
+  <p class="code">UPDATE routing_simple SET x1 = x(ST_startpoint(the_geom));</p>
+  <p class="code">UPDATE routing_simple SET y1 = y(ST_startpoint(the_geom));</p>
+  <p class="code">UPDATE routing_simple SET x2 = x(ST_endpoint(the_geom));</p>
+  <p class="code">UPDATE routing_simple SET y2 = y(ST_endpoint(the_geom));</p>
+  <p class="code">UPDATE routing_simple SET to_cost = 'Infinity'</p>
+  <h4>Ejemplo normal</h4>
+  <p class="code">SELECT shootingstar_sp('routing_simple', 1, 3, 0.1, 'length', true, true);</p>
+  <p>Añadimos una restricción de giro;</p>
+  <p class="code">UPDATE routing_simple SET rule = '1' WHERE gid = 3;</p>
+  <h4>Ejemplo con restricción de giro</h4>
+  <p class="code">SELECT shootingstar_sp('routing_simple', 1, 3, 0.1, 'length', true, true);</p>
+  </div>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Pros</h4>
+  <p>Tiene en cuenta todas nuestras restricciones</p>
+  <p>Devuelve rutas óptimas</p>
+  <p>Es fácil incorporar restricciones inteligentes (vistas)</p>
+  <p>Toda la potencia de base de postgreSQL</p>
+  
+  <h4 style="padding-top:10%">Contras</h4>
+  <p>Es muy lento con datos reales</p>
+  <p>Utiliza mucha memoria</p>
+  </div>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4 style="padding-top:10%">¿Es posible mejorar Shooting Star?</h4>
+  
+  <img style="padding-left:40%;padding-top:5%" src="imagenes/jumpforward.png" width="30%"/>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Acelerar Shooting Star</h4>
+  <h5 style="padding-top:3%">Optimizar PostgreSQL</h5>
+  <p>Utilizar índices</p>
+  <p>Clusterizar índices más usados</p>
+  
+  <h5 style="padding-top:3%">Optimizar Datos</h5>
+  <p>Datos precalculados</p>
+  <p>Utilizar enteros de menor valor (empezando en cero)</p>
+  
+  <h5 style="padding-top:3%">Minimizar Datos</h5>
+  <p>Bounding Box mejorado</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4>Mejorar Shooting Star</h4>
+  
+  <h5>Cálculo por Partes</h5>
+  <p>Dividir la ruta en trozos más pequeños</p>
+  <img style="padding-left:20%;padding-right:20%" src="imagenes/porpartes.png" width="60%"/>
+  
+  <h5 style="padding-top:1%">Reescribir el código</h5>
+  <p>No usar tanta memoria y aprovechar la potencia de postgreSQL</p>
+ 
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> Shooting Star </div>
+  
+  <h4 style="padding-top:10%">¿Y si mejoramos el código de pgRouting?</h4>
+  
+  <img style="padding-left:40%;padding-top:5%" src="imagenes/jumpforward.png" width="30%"/>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide" id="osrm">
   <div class="header"> INDICE </div>
   <ul>
     <li class="before">Breve Introducción Teórica</li>
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="before">Shooting Star</li>
-    <li class="before">HBA</li>
     <li class="current">OSRM</li>
     <li class="after">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -448,7 +647,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="before">Shooting Star</li>
-    <li class="before">HBA</li>
     <li class="before">OSRM</li>
     <li class="current">¿Qué es OpenLS?</li>
     <li class="after">Cómo implementar OpenLS</li>
@@ -466,7 +664,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="before">Shooting Star</li>
-    <li class="before">HBA</li>
     <li class="before">OSRM</li>
     <li class="before">¿Qué es OpenLS?</li>
     <li class="current">Cómo implementar OpenLS</li>
@@ -484,7 +681,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="before">Shooting Star</li>
-    <li class="before">HBA</li>
     <li class="before">OSRM</li>
     <li class="before">¿Qué es OpenLS?</li>
     <li class="before">Cómo implementar OpenLS</li>
@@ -501,7 +697,6 @@
     <li class="before">Cálculo de rutas en entornos reales</li>
     <li class="before">pgRouting</li>
     <li class="before">Shooting Star</li>
-    <li class="before">HBA</li>
     <li class="before">OSRM</li>
     <li class="before">¿Qué es OpenLS?</li>
     <li class="before">Cómo implementar OpenLS</li>
@@ -513,11 +708,33 @@
 
 
 
+<section class="slide">
+  <div class="header"> Conclusiones </div>
+  
+  <h4 style="padding-top:1%">pgRouting</h4>
+  <p>Cálculo de rutas ligeras</p>
+  <p>Multiplataforma</p>
+  
+  <h4 style="padding-top:8%">OSRM</h4>
+  <p>Cálculo de rutas pesadas</p>
+  
+  <h4 style="padding-top:7%">GoFleetLS</h4>
+  
+  <p>Estandarizar</p>
+  <p>Proveer de más funcionalidad GIS</p>
+  
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
 
 
-
-
-
+<section class="slide">
+  <center>
+    <h2>Jornadas SIG Libre de Girona 2012</h2>
+    <h5>María Arias de Reyna Domínguez <strong>@delawen</strong></h5>
+    <h1>¿Preguntas?</h1>
+    <h4>Gracias por escucharme</h4>
+  </center>
+</section>
 
 
 <!-- Foot -->

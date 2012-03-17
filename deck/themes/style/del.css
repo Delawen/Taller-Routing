@@ -19,7 +19,7 @@ div.header {
   padding-left:23px;
   border-radius:12px;
   margin-top: 13px;
-  margin-bottom:20px;
+  margin-bottom:4%;
   font-family: Sketch;
 }
 
@@ -33,22 +33,31 @@ div.foot {
 }
 
 .slide li  {
-  font-size: 150%;
+  font-size: 160%;
   font-family: Sketch;
 }
 
 li.before {
   color: #FD9797;
+  list-style-type:none;
 }
 li.current {
   color: #e00;
+  list-style-type:none;
 }
 li.after {
   color: #955959;
+  list-style-type:none;
 }
 
 img{
   float:left;
+}
+
+p.code{
+  font-size:90%;
+  font-family:"Greyscale";
+  color: #e00;
 }
 
 p.listado{
@@ -86,10 +95,12 @@ ul.old li{
   color: #e00;
   font-weight: normal;
   text-shadow: 0 0 4px #e00, 0 0 3px #fff;
+  font-size:300%;
   font-family: Sketch;
 }
 .deck-container .slide h2 {
   color: #1f4;
+  font-size:120%;
   border-bottom-color: #ccc;
   font-weight: normal;
   font-weight: 100;
@@ -98,14 +109,23 @@ ul.old li{
 .deck-container .slide h3 {
   color: #fff;
   font-weight: normal;
+  font-size:115%;
   font-weight: 100;
   text-shadow: 0 0 10px #fff, 0 0 2px #fff;
   font-family: Sketch;
 }
 .deck-container .slide h4 {
   font-weight: normal;
+  font-size:130%;
   font-family: Sketch;
   padding-bottom:25px;
+  color:#a33;
+}
+.deck-container .slide h5 {
+  font-weight: normal;
+  font-family: Sketch;
+  padding-bottom:15px;
+  color:#744;
 }
 .deck-container .slide pre {
   border-color: #333;
