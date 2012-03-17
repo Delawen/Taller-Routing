@@ -805,6 +805,47 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
+<section class="slide">
+  <div class="header"> OpenLS </div>
+  
+  <p>API XML</p>
+  <p>Datos desde muy concretos a muy abstractos</p>
+  <p>Prácticamente toda la funcionalidad GIS conocida</p>
+  <p>Servidor escalable (desde funcionalidad básica a completa)</p>
+  <p class="code"> &lt;XLS version="1.2" xmlns="http://www.opengis.net/xls" 
+        xmlns:gml="http://www.opengis.net/gml"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.opengis.net/xls"&gt;
+ &lt;RequestHeader /&gt;
+ &lt;Request&gt;
+ &lt;GeocodeRequest&gt;
+ &lt;Address&gt;
+ &lt;Place type="Municipality"&gt;Girona &lt;/Place&gt;
+ &lt;/Address&gt;
+ &lt;/GeocodeRequest&gt;
+ &lt;/Request&gt;
+ &lt;/XLS&gt;</p>
+ 
+   <p class="code"> &lt;XLS version="1.2" xmlns="http://www.opengis.net/xls" 
+        xmlns:gml="http://www.opengis.net/gml"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.opengis.net/xls"&gt;
+ &lt;ResponseHeader /&gt;
+ &lt;Response&gt;
+ &lt;GeocodeResponse&gt;
+ &lt;GeocodeResponseList&gt;
+ &lt;GeocodedAddress&gt;
+ &lt;gml:Point&gt; xmlns:gml="http://www.opengis.net/gml"&gt;
+            &lt;gml:pos dimension="2" srsName="4326"&gt;37,386, -5,988&lt;/gml:pos&gt;
+ &lt;/gml:Point&gt;
+ &lt;/GeocodedAddress&gt;
+ &lt;/GeocodeResponseList&gt;
+ &lt;/GeocodeResponse&gt;
+ &lt;/Response&gt;
+ &lt;/XLS&gt;</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
 
 <section class="slide">
   <div class="header"> INDICE </div>
@@ -825,7 +866,16 @@
 <section class="slide">
   <div class="header"> Cómo implementar OpenLS </div>
   
+  <img style="padding-left:20%;padding-right:20%" src="imagenes/openLS.png" width="60%"/>
   <p>No olvidar las utilidades OpenGIS</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> Cómo implementar OpenLS </div>
+  
+  <h4>GoFleetLS</h4>
+  <img style="padding-left:20%;padding-right:20%" src="imagenes/goFleetLS.png" width="60%"/>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
@@ -846,6 +896,55 @@
 </section>
 
 <section class="slide">
+  <div class="header"> GoFleetLS </div>
+  <p><a href="https://github.com/Emergya/gofleetlsserver">https://github.com/Emergya/gofleetlsserver</a></p>
+  <p>GoFleetLS es el intermediario(OpenLS)</p>
+  <p>(es imposible abarcar todas las implementaciones de manera efectiva)</p>
+  <p>Implementado en Java (fácilmente transportable)</p>
+  <p>Se apoya en diferentes </p>
+  //TODO
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> GoFleetLS </div>
+  <h4>Instalación</h4>
+  <p>Aún no hay una paquetería disponible,pero maven nos simplifica el trabajo</p>
+  <p>Primero instalamos el entorno</p>
+  <p class="code">$sudo apt-get install tomcat6 maven2</p>
+  <p>Luego nos bajamos el código fuente</p>
+  <p class="code">$git clone git://github.com/Emergya/GoFleetLSServer.git</p>
+  <p class="code">$cd GoFleetLSServer</p>
+  <p class="code">$mvn clean package -Dmaven.test.skip</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+
+<section class="slide">
+  <div class="header"> GoFleetLS </div>
+  <h4>Configuración</h4>
+  <p>Creamos un fichero context.xml para Tomcat:</p>
+  <p class="code" style="text-align:left;">&lt;Context path="/openLS-OSRM" docBase="/home/jornadas/taller_pgrouting/GoFleetLSServer/target/openLS.war" reloadable="true"&gt;</p>
+  <p class="code" style="text-align:left;">&lt;Environment name="RoutingConnector"value="OSRM" type="java.lang.String" /&gt;</p>
+  <p class="code" style="text-align:left;">&lt;/Context&gt;</p>
+  <p>Al lanzarlo en Tomcat, nos encontraremos GoFleetLS esperando en</p>
+  <p><a href="http://localhost:8080/openLS-OSRM">http://localhost:8080/openLS-OSRM</a></p>
+  <p>La primera vez inicializa las cachés y tarda un poco más</p>
+  <p class="code">Have you tried sending a XLS request by POST?</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
+  <div class="header"> GoFleetLS </div>
+  <h4>Pruebas</h4>
+  <p>Para las pruebas usaremos un cliente OpenLayers</p>
+  <img style="padding-left:30%;padding-right:30%;width:40%;padding-top:2%;padding-bottom:2%" src="imagenes/girona.png"/>
+  <p>Aunque cualquier cliente REST/XML podría valer.</p>
+<div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
+</section>
+
+<section class="slide">
   <div class="header"> INDICE </div>
   <ul>
     <li class="before">Breve Introducción Teórica</li>
@@ -861,8 +960,6 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
-
-
 <section class="slide">
   <div class="header"> Conclusiones </div>
   
@@ -870,13 +967,15 @@
   <p>Cálculo de rutas ligeras</p>
   <p>Multiplataforma</p>
   
-  <h4 style="padding-top:8%">OSRM</h4>
+  <h4 style="padding-top:6%">OSRM</h4>
   <p>Cálculo de rutas pesadas</p>
   
-  <h4 style="padding-top:7%">GoFleetLS</h4>
+  <h4 style="padding-top:4%">GoFleetLS</h4>
   
   <p>Estandarizar</p>
-  <p>Proveer de más funcionalidad GIS</p>
+  <p>Poder cambiar fácilmente de implementación</p>
+  <p>Eventualmente, balancear la carga</p>
+  <p>Proveer de más funcionalidad GIS combinada</p>
   
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
