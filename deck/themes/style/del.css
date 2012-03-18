@@ -54,6 +54,14 @@ img{
   float:left;
 }
 
+img.pet {
+  position:fixed;
+  bottom:5px;
+  left:5%;
+  max-width:150px;
+  max-height:150px;
+}
+
 p.code{
   font-size:90%;
   font-family:"Greyscale";
