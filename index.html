@@ -116,11 +116,11 @@
   <center><p>O(|E| + |V| log(|V|))</p></center>
   
   <p>Para situarnos:</p>
-  <p>una ciudad como Sevilla puede tener cerca de 100.000 viales. </p>
+  <p>una ciudad como Sevilla puede tener cerca de 30.000 viales. </p>
   <p>Aún cuando tardara un milisegundo en procesar cada vial y otro milisegundo 
   en procesar cada cruce, si queremos calcular una ruta atraviese la ciudad nos quedaría:</p>
   
-  <center><p>O(|100000| + |100000| log(|100000|))~ 600.000 ms ~ 10 minutos</p></center>
+  <center><p>O(|30.000| + |30.000| log(|30.000|))~ 300.000 ms ~ 5 minutos</p></center>
   
   <p>Y eso usando sólo los datos de una ciudad media.</p>
   
@@ -245,6 +245,7 @@
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 -->
+
 <section class="slide" id="pgrouting">
   <div class="header"> INDICE </div>
   <ul>
@@ -301,7 +302,7 @@
   <p class="code">#service postgresql restart</p>
   <p class="code">#exit</p>
   <p>Ahora tenemos permiso para acceder desde local y desde cualquier usuario a la basede datos.</p>
-  <p class="code"> $ createuser -U postgres girona</p>
+  <p class="code"> $ createuser -U postgres -h localhost girona</p>
   <p class="code"> ¿Será el nuevo rol un superusuario? (s/n) s</p>  
   <p>Y ya tenemos un usuario para hacer nuestras pruebas.</p>
 
@@ -406,7 +407,7 @@
   </div>
   <p class="listado">Driving Distance calculation</p>
   <div style="visibility:hidden">
-  <p>No he encontrado documentación sobre cómo funciona exactamente</p>
+  <p>No devuelve la geometría, sólo el tiempo</p>
   </div>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
@@ -427,7 +428,7 @@
   </div>
   <p class="listado">Driving Distance calculation</p>
   <div>
-  <p>No he encontrado documentación sobre cómo funciona exactamente</p>
+  <p>No devuelve la geometría, sólo el tiempo</p>
   </div>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
@@ -438,7 +439,7 @@
   <h4>Ejemplo rápido de Dijkstra</h4>
   <p>Creamos una base de datos para nuestras pruebas</p>
   <p class="code">createdb -U girona -h localhost --template="template_postgis" girona</p>
-  <p>Y la dotamos de la extensión pgRouting</p>
+  <p style="padding-top:5%">Y la dotamos de la extensión pgRouting</p>
   <p class="code">--createlang -U girona -h localhost plpgsql girona</p>
   <p class="code">psql -U girona -h localhost -d girona -f /usr/share/postlbs/routing_core.sql</p>
   <p class="code">psql -U girona -h localhost -d girona -f /usr/share/postlbs/routing_core_wrappers.sql</p>
