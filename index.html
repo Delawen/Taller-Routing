@@ -326,7 +326,7 @@
   <div class="header"> pgRouting </div>
   
   <h4>Tipo de Dato</h4>
-  <ul class="listado">
+  <ul class="listado" style="padding-left:15%">
   <li>ID: (NOT NULL) Serial</li>
   <li>the_geom: geometry NOT NULL</li>
   <li>cost double precision DEFAULT (-1) NOT NULL</li>
@@ -336,7 +336,7 @@
   <li>x2 double precision NOT NULL</li>
   <li>y2 double precision NOT NULL</li>
   </ul>
-  <ul class="listado">
+  <ul class="listado" style="padding-left:15%">
   <li>source integer</li>
   <li>target integer</li>
   </ul>
@@ -347,7 +347,7 @@
   <div class="header"> pgRouting </div>
   
   <h4>Tipo de Dato</h4>
-  <ul class="old">
+  <ul class="old" style="padding-left:15%">
   <li>ID: (NOT NULL) Serial</li>
   <li>the_geom: geometry NOT NULL</li>
   <li>cost double precision DEFAULT (-1) NOT NULL</li>
@@ -357,7 +357,7 @@
   <li>x2 double precision NOT NULL</li>
   <li>y1 double precision NOT NULL</li>
   </ul>
-  <ul class="listado">
+  <ul class="listado" style="padding-left:15%">
   <li>source integer</li>
   <li>target integer</li>
   </ul>
@@ -369,7 +369,7 @@
   <div class="header"> pgRouting </div>
   
   <h4>Tipo de Dato</h4>
-  <ul class="old">
+  <ul class="old" style="padding-left:15%">
   <li>ID: (NOT NULL) Serial</li>
   <li>the_geom: geometry NOT NULL</li>
   <li>cost double precision DEFAULT (-1) NOT NULL</li>
@@ -379,11 +379,11 @@
   <li>x2 double precision NOT NULL</li>
   <li>y1 double precision NOT NULL</li>
   </ul>
-  <ul class="old">
+  <ul class="old" style="padding-left:15%">
   <li>source integer</li>
   <li>target integer</li>
   </ul>
-  <ul class="listado">
+  <ul class="listado" style="padding-left:15%">
   <li>to_cost double precision DEFAULT (0) NOT NULL</li>
   <li>rule text</li>
   </ul>
@@ -575,7 +575,7 @@
 <section class="slide">
   <div class="header"> Shooting Star </div>
   
-  <h4>Ejemplo Real</h4>
+  <h4 style="padding-top:12%">Ejemplo Real</h4>
   <p class="code">--createlang -U gofleetls -h localhost plpgsql gofleetls</p>
   <p class="code">psql -U gofleetls -h localhost -f /usr/share/postlbs/routing_core.sql</p>
   <p class="code">psql -U gofleetls -h localhost -f /usr/share/postlbs/routing_core_wrappers.sql</p>
@@ -667,9 +667,9 @@
   
   <h5>Cálculo por Partes</h5>
   <p>Dividir la ruta en trozos más pequeños</p>
-  <img style="padding-left:20%;padding-right:20%" src="imagenes/porpartes.png" width="60%"/>
+  <img style="padding-left:30%;padding-right:30%" src="imagenes/porpartes.png" width="40%"/>
   
-  <h5 style="padding-top:1%">Reescribir el código</h5>
+  <h5>Reescribir el código</h5>
   <p>No usar tanta memoria y aprovechar la potencia de postgreSQL</p>
  
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
@@ -870,14 +870,14 @@ xsi:schemaLocation="http://www.opengis.net/xls"&gt;
 <section class="slide">
   <div class="header"> Cómo implementar OpenLS </div>
   
-  <img style="padding-left:20%;padding-right:20%" src="imagenes/openLS.png" width="60%"/>
+  <img style="padding-left:25%;padding-right:25%" src="imagenes/openLS.png" width="50%"/>
   <p>No olvidar las utilidades OpenGIS</p>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
 <section class="slide">
   <div class="header"> Cómo implementar OpenLS </div>
-  <img style="padding-left:20%;padding-right:20%" src="imagenes/goFleetLS.png" width="60%"/>
+  <img style="padding-left:25%;padding-right:25%" src="imagenes/goFleetLS.png" width="50%"/>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
 
@@ -943,7 +943,7 @@ xsi:schemaLocation="http://www.opengis.net/xls"&gt;
   <div class="header"> GoFleetLS </div>
   <h4>Pruebas</h4>
   <p>Para las pruebas usaremos un cliente OpenLayers</p>
-  <img style="padding-left:30%;padding-right:30%;width:40%;padding-top:2%;padding-bottom:2%" src="imagenes/girona.png"/>
+  <a href="http://localhost/openlayers/examples/openLS-Routing.html"><img style="padding-left:30%;padding-right:30%;width:40%;padding-top:1%;padding-bottom:1%" src="imagenes/girona.png"/></a>
   <p>Aunque cualquier cliente REST/XML podría valer.</p>
 <div class="foot">Taller de Routing por María Arias de Reyna (@delawen)</div>
 </section>
